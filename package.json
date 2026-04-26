@@ -13,14 +13,14 @@
   "license": "ISC",
   "author": "ICT-Rentals",
   "type": "commonjs",
-  "main": "app2.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app2.js"
+    "start": "nodemon app.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
-    "mysql2": "^3.20.0",
     "nodemon": "^3.1.14"
   }
 }
