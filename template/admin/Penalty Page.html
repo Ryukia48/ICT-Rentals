@@ -24,6 +24,9 @@
         .nav-links { display: flex; list-style: none; margin: 0; padding: 0; flex-grow: 1; }
         .nav-links li { margin: 0 20px; font-size: 18px; cursor: pointer; color: #333; }
         .dropdown::after { content: ' ▼'; font-size: 10px; color: #888; }
+        .nav-links li.active {
+            font-weight: 600;
+        }                
         .nav-right { display: flex; align-items: center; gap: 20px; }
 
         /* --- Content Container --- */
@@ -110,13 +113,13 @@
     <nav>
         <img src="https://via.placeholder.com/50x50?text=Logo" alt="Logo" class="logo">
         <ul class="nav-links">
-            <li>Dashboard</li>
+            <li onclick="window.location.href='Dashboard Admin.html'">Dashboard</li>
             <li class="dropdown">Management</li>
-            <li>Penalty Page</li>
-            <li>Team Page</li>
+            <li class="active" onclick="window.location.href='Penalty Page.html'">Penalty Page</li> 
+            <li onclick="window.location.href='Team Page Admin.html'">Team Page</li>
         </ul>
         <div class="nav-right">
-            <span>Log Out</span>
+            <div class="nav-right"onclick ="window.location.href='../Login Choice.html'">
             <span style="font-size: 24px; color: #bbb;">🔔</span>
         </div>
     </nav>
