@@ -1,11 +1,11 @@
 -- Equipment Rental System - Database Implementation
 
-DROP DATABASE IF EXISTS equipment_rental_db;
-CREATE DATABASE equipment_rental_db
+DROP DATABASE IF EXISTS sec3_gr10_database;
+CREATE DATABASE sec3_gr10_database
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
-USE equipment_rental_db;
+USE sec3_gr10_database;
 
 
 -- TABLE: Administrators
@@ -212,18 +212,18 @@ VALUES
 
 -- ---- Admin_Activity_Logs (10 rows) ----
 INSERT INTO Admin_Activity_Logs
-  (action_type, action_details, action_time, admin_id, target_item_id, target_transaction_id)
+  (action_type, action_details, admin_id, target_item_id, target_transaction_id)
 VALUES
-('Login',        'Admin logged in from 192.168.1.10',           '2026-01-10 08:50:00', 1, NULL, NULL),
-('Add Model',    'Added model: MacBook Pro 14-inch (model_id=1)','2026-01-10 09:00:00', 1, NULL, NULL),
-('Add Item',     'Added item serial 13/01 for MacBook Pro',      '2026-01-10 09:05:00', 1, 1,    NULL),
-('Add Item',     'Added item serial 13/02 for MacBook Pro',      '2026-01-10 09:06:00', 1, 2,    NULL),
-('Approve Loan', 'Approved transaction_id=1 for student 6501234001', '2026-01-10 09:10:00', 1, NULL, 1),
-('Login',        'Admin logged in from 192.168.1.22',           '2026-01-15 09:55:00', 2, NULL, NULL),
-('Approve Loan', 'Approved transaction_id=2 for student 6501234002', '2026-01-15 10:05:00', 2, NULL, 2),
-('Edit Item',    'Changed item 17/01 status to Maintenance',    '2026-02-05 11:00:00', 3, 6,    NULL),
-('Delete Item',  'Removed deprecated USB hub item_id=7',        '2026-02-18 14:30:00', 4, 7,    NULL),
-('Logout',       'Admin session ended',                         '2026-03-15 18:00:00', 5, NULL, NULL);
+('Login',        'Admin logged in from 192.168.1.10', 1, NULL, NULL),
+('Add Model',    'Added model: MacBook Pro 14-inch (model_id=1)', 1, NULL, NULL),
+('Add Item',     'Added item serial 13/01 for MacBook Pro', 1, 1, NULL),
+('Add Item',     'Added item serial 13/02 for MacBook Pro', 1, 2, NULL),
+('Approve Loan', 'Approved transaction_id=1 for student 6501234001', 1, NULL, 1),
+('Login',        'Admin logged in from 192.168.1.22', 2, NULL, NULL),
+('Approve Loan', 'Approved transaction_id=2 for student 6501234002', 2, NULL, 2),
+('Edit Item',    'Changed item 17/01 status to Maintenance', 3, 6, NULL),
+('Delete Item',  'Removed deprecated USB hub item_id=7', 4, 7, NULL),
+('Logout',       'Admin session ended',5, NULL, NULL);
 
 
 -- ============================================================
