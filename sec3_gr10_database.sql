@@ -130,29 +130,29 @@ CREATE TABLE Admin_Activity_Logs (
 -- ---- Administrators (10 rows) ----
 -- c
 INSERT INTO Administrators (username, password, role, first_name, last_name, email, phone) VALUES
-('Supersomchai123','admin1', 'superadmin', 'Somchai', 'Wannasuk', 'somchai.w@ict.ac.th', '0812345601'),
-('Nattsudsuay','admin2', 'superadmin', 'Nattaporn', 'Charoensuk', 'nattaporn.c@ict.ac.th', '0812345602'),
-('PMongkol', 'admin3', 'admin', 'Preeya', 'Mongkol', 'preeya.m@ict.ac.th', '0812345603'),
-('Kritict', 'admin4', 'admin', 'Krit', 'Srisawat', 'krit.s@ict.ac.th', '0812345604'),
-('WanidaPhothong', 'admin5', 'admin', 'Wanida', 'Phothong', 'wanida.p@ict.ac.th', '0812345605'),
-('Thanakorn555', 'admin6', 'admin', 'Thanakorn', 'Ruangrit', 'thanakorn.r@ict.ac.th', '0812345606'),
-('Siri', 'admin7', 'admin', 'Siriporn', 'Kanchana', 'siriporn.k@ict.ac.th', '0812345607'),
-('Attt', 'admin8', 'admin', 'Anuwat', 'Teerakit', 'anuwat.t@ict.ac.th', '0812345608'),
-('PS456', 'admin9', 'admin', 'Patcharee', 'Suwanno', 'patcharee.s@ict.ac.th', '0812345609'),
-('ChanatWork', 'admin10', 'admin', 'Chanat', 'Pongsak', 'chanat.p@ict.ac.th', '0812345610');
+('Supersomchai123','$2b$10$g3BohHKgCT0a77LKCd8xMOPaNrUwfRQYFZHTFlxk6NTQvjZmcVNFe', 'superadmin', 'Somchai', 'Wannasuk', 'somchai.w@ict.ac.th', '0812345601'),
+('Nattsudsuay',' $2b$10$5pN0lG4SVkdgami9c2NMKOtR6xzBCsYs3mjD3RVaCCMOCZc4tj8Jy', 'superadmin', 'Nattaporn', 'Charoensuk', 'nattaporn.c@ict.ac.th', '0812345602'),
+('PMongkol', '$2b$10$lKMYlS3Itsv7eHfkHOJobuMKyeFn8WA2/riuV6avIYTk6iNUjGEFS', 'admin', 'Preeya', 'Mongkol', 'preeya.m@ict.ac.th', '0812345603'),
+('Kritict', '$2b$10$6oi/l/4kcnzWR9wmqfxU8u7ApW.jmSANqD4jnu8SnJ/pveGHwz0su', 'admin', 'Krit', 'Srisawat', 'krit.s@ict.ac.th', '0812345604'),
+('WanidaPhothong', '$2b$10$SWDi4tsecZFNlUB4wobuNuE4acd2/ZSOqvC0jdgeBbU3ePZNYWH3i', 'admin', 'Wanida', 'Phothong', 'wanida.p@ict.ac.th', '0812345605'),
+('Thanakorn555', '$2b$10$.2icZGDBJReZ.0Iq9zRAz.0e/NruHWcqXzBMTvrJ7L0toHpEewF/K', 'admin', 'Thanakorn', 'Ruangrit', 'thanakorn.r@ict.ac.th', '0812345606'),
+('Siri', '$2b$10$Zi49OxAmg/yN7UlGEOyYuuDaTYqB50oxe/bQUZBMvELZ1mYBHlpSq', 'admin', 'Siriporn', 'Kanchana', 'siriporn.k@ict.ac.th', '0812345607'),
+('Attt', '$2b$10$j/KiTfG3jCJMU1Rm20WAG.bGbNnED1fO1d3A7iQ/3FcmxmXvb7asK', 'admin', 'Anuwat', 'Teerakit', 'anuwat.t@ict.ac.th', '0812345608'),
+('PS456', '$2b$10$ywpIpjNb3Yfx/Z6MW014UOAAJJDXeQjtM0/bH0pnWxKVq8.VWO/pC', 'admin', 'Patcharee', 'Suwanno', 'patcharee.s@ict.ac.th', '0812345609'),
+('ChanatWork', '$2b$10$ZPNuy99TL9Spa2A7FLnOFeP5gGXKi39r36d80dN834LqNlawyiTOW', 'admin', 'Chanat', 'Pongsak', 'chanat.p@ict.ac.th', '0812345610');
 
 -- ---- Students (10 rows) ----
 INSERT INTO Students (student_id, password, first_name, last_name, email, phone) VALUES
-('6501234001', 'student1', 'Arisa',    'Tanaka',     'arisa.t@student.ict.ac.th',    '0891110001'),
-('6501234002', 'student2', 'Bordin',   'Chaiya',     'bordin.c@student.ict.ac.th',   '0891110002'),
-('6501234003', 'student3', 'Chanon',   'Pimpa',      'chanon.p@student.ict.ac.th',   '0891110003'),
-('6501234004', 'student4', 'Darin',    'Saetang',    'darin.s@student.ict.ac.th',    '0891110004'),
-('6501234005', 'student5', 'Ekachai',  'Wongkham',   'ekachai.w@student.ict.ac.th',  '0891110005'),
-('6501234006', 'student6', 'Fah',      'Ploysri',    'fah.p@student.ict.ac.th',      '0891110006'),
-('6501234007', 'student7', 'Gamon',    'Srisuwan',   'gamon.s@student.ict.ac.th',    '0891110007'),
-('6501234008', 'student8', 'Hathai',   'Nakorn',     'hathai.n@student.ict.ac.th',   '0891110008'),
-('6501234009', 'student9', 'Ittipong', 'Kasem',      'ittipong.k@student.ict.ac.th', '0891110009'),
-('6501234010', 'student10', 'Jirapat',  'Phakdee',    'jirapat.p@student.ict.ac.th',  '0891110010');
+('6501234001', '$2b$10$w4YL1.xa51sPGfxwsOkta.hPK0cQvzrqQTPwDAch3fLtoaCAtYp..', 'Arisa',    'Tanaka',     'arisa.t@student.ict.ac.th',    '0891110001'),
+('6501234002', '$2b$10$fEBFgvNYyPnnU8CmGTWQbuBmL0Rcs4cmBlS1.TdF.Pb7Tnnx3lpxq', 'Bordin',   'Chaiya',     'bordin.c@student.ict.ac.th',   '0891110002'),
+('6501234003', '$2b$10$jWf357U0LuQDt2WATeu7yeaLWUz62rv8qxVPHa1tMhG6e98ZVzPxK', 'Chanon',   'Pimpa',      'chanon.p@student.ict.ac.th',   '0891110003'),
+('6501234004', '$2b$10$lLBSARoJGup35Hsm64CusOEP.EqwTTvgOZ/B/FjNuCwFuJRXV2QnW', 'Darin',    'Saetang',    'darin.s@student.ict.ac.th',    '0891110004'),
+('6501234005', '$2b$10$7fHTffU6w1yPFjH1NYF0p.jB3K9sjf4ZVqTnjd/gurUBYlVVDHJW6', 'Ekachai',  'Wongkham',   'ekachai.w@student.ict.ac.th',  '0891110005'),
+('6501234006', '$2b$10$/igCUP.KTxOrxwY.WDk.ieO9XdZ8ihgLHWwXZwW5800d293y8Fgle', 'Fah',      'Ploysri',    'fah.p@student.ict.ac.th',      '0891110006'),
+('6501234007', '$2b$10$w.HXw6ZbqDu8RS73xmRd5.qJ3EJ1XbDFXkdz3fnbHmy3Anqkb91R2', 'Gamon',    'Srisuwan',   'gamon.s@student.ict.ac.th',    '0891110007'),
+('6501234008', '$2b$10$ZtNkZhGEAOvdTGni0OdVI.k3b9ayDYGMyTMICIdU6zqc9Mh9Mg5Gy', 'Hathai',   'Nakorn',     'hathai.n@student.ict.ac.th',   '0891110008'),
+('6501234009', '$2b$10$QCJ.9P.uOjL4VM3FdEQ3BuM8CeNsJ1aMuyxFfFHiQfL6Xx7tQhfbu', 'Ittipong', 'Kasem',      'ittipong.k@student.ict.ac.th', '0891110009'),
+('6501234010', '$2b$10$hdK2lDOXsSpr.s.jF8iTOe7TGBsge4DHva3rD71Eqys676P.J8afy', 'Jirapat',  'Phakdee',    'jirapat.p@student.ict.ac.th',  '0891110010');
 
 -- ---- Equipments_Models (10 rows) ----
 INSERT INTO Equipments_Models (name, brand, category, img_url, details, specs, admin_id) VALUES

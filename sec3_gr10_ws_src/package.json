@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "backend_api.js",
   "scripts": {
-    "test": "nodemon backend_api.js"
+    "start": "nodemon backend_api.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

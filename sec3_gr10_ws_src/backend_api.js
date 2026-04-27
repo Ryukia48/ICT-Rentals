@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const path = require('path');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 
 dotenv.config();
 const app = express();
@@ -69,6 +70,50 @@ router.post('/api/ai-assist', async (req, res) => {
 });
 
 /* --- Auth / Login Route --- */
+app.post('/api/login-admin', (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password)
+        return res.status(400).json({ error: true, message: 'Please provide email and password.' });
+
+    db.query('SELECT * FROM Administrators WHERE email = ?', [email], async (err, results) => {
+        if (err) return res.status(500).json({ error: true, message: err.message });
+        if (results.length === 0)
+            return res.status(401).json({ error: true, message: 'Invalid email or password.' });
+
+        const admin = results[0];
+        const match = await bcrypt.compare(password, admin.password);
+        if (!match)
+            return res.status(401).json({ error: true, message: 'Invalid email or password.' });
+
+        db.query(
+            'INSERT INTO Admin_Activity_Logs (action_type, action_details, admin_id) VALUES (?, ?, ?)',
+            ['Login', `Admin logged in: ${admin.email}`, admin.admin_id]
+        );
+
+        const { password: _, ...adminData } = admin;
+        return res.json({ error: false, message: 'Login successful.', data: adminData });
+    });
+});
+
+app.post('/api/login-student', (req, res) => {
+    const { student_id, password } = req.body;
+    if (!student_id || !password)
+        return res.status(400).json({ error: true, message: 'Please provide student ID and password.' });
+
+    db.query('SELECT * FROM Students WHERE student_id = ?', [student_id], async (err, results) => {
+        if (err) return res.status(500).json({ error: true, message: err.message });
+        if (results.length === 0)
+            return res.status(401).json({ error: true, message: 'Invalid student ID or password.' });
+
+        const student = results[0];
+        const match = await bcrypt.compare(password, student.password);
+        if (!match)
+            return res.status(401).json({ error: true, message: 'Invalid student ID or password.' });
+
+        const { password: _, ...studentData } = student;
+        return res.json({ error: false, message: 'Login successful.', data: studentData });
+    });
+});
 
 /* --- Admin Routes --- */
 
