@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT-RENTALS Login - Updated</title>
+    <style>
+        /* Base page styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Centered login card */
+        .login-card {
+            background-color: #ffffff;
+            width: 420px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        /* Logo Section */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-icon {
+            width: 80px; /* Sized to match reference image_1.png */
+            height: 80px;
+            margin-right: 15px;
+            background-image: url('https://i.postimg.cc/N0Y1nx0g/mu-ict-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+        }
+
+        .logo-text {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1a3a8a;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #5c78b5;
+            font-weight: 300;
+        }
+
+        /* Standard Login Form Section */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], 
+        input[type="password"] {
+            width: 85%;
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            font-size: 14px;
+            background-color: #fff;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        .btn-primary-login {
+            background-color: #7d97e2;
+            color: white;
+            padding: 8px 35px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 25px 0;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* SSO Buttons */
+        .btn-sso {
+            display: flex;            
+            align-items: center;
+            justify-content: center;
+            width: 100%;              
+            padding: 12px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            box-sizing: border-box; 
+        }
+
+        .btn-mahidol {
+            background-color: #7d97e2;
+            color: white;
+        }
+
+        .btn-admin {
+            background-color: #ffecd1;
+            color: #8a7a60;
+        }
+
+        .icon-user {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        /* Help/Footer Section */
+        .footer-text h3 {
+            font-size: 16px;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .footer-text p {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+            margin: 4px 0;
+        }
+
+        .blue-link {
+            color: #3a7ebf;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        /* GEMINI HELPER */
+        .gemini-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #4285f4, #9b72cb);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .gemini-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .gemini-icon {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        .ai-modal {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            z-index: 1001;
+        }
+
+        .ai-header {
+            background: #1a3a8a; /* Matches your logo blue */
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ai-content {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .ai-footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+
+        #ai-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .ai-footer button {
+            background: #7d97e2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-left: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* GEMINI HELPER */
+    </style>
+</head>
+<body>
+    <main>
+        <div class="login-card">
+           <div class="logo-container">
+                 <img src="https://i.postimg.cc/BvYTBQ6S/long-logo.png" alt="ICT Rentals" style="height: 50px;">
+            </div>
+
+            <div id="auth-warning" style="display: none; color: #dc2626; background: #fee2e2; padding: 12px; border-radius: 10px; margin-bottom: 15px; font-size: 14px; border: 1px solid #fecaca; text-align: center;">
+            </div>
+
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder="Username (Email)" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary-login" id="loginBtn">
+                    Log in
+                </button>
+            </form>
+
+            <hr>
+
+            <h2 class="login-prompt" style="font-size: 18px; margin-bottom: 15px;">Alternative Login:</h2>
+
+            <a href="/login-student" class="btn-sso btn-mahidol" style="text-decoration: none;">
+                <span class="icon-user">👤</span> Mahidol Account Login
+            </a>
+
+            <a href="/login-admin" class="btn-sso btn-admin" style="text-decoration: none; margin-top: 10px;">
+                Admin Account Login
+            </a>
+
+            <hr>
+
+            <div class="footer-text">
+                <h3>Is this your first time here?</h3>
+                <p><a href="#" class="blue-link">Use your MU internet account for login</a></p>
+                <p>
+                    <strong>Ex.</strong> u6388xxx (for student),<br>
+                    pxxxx.xxx (for teacher)
+                </p>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- GEMINI HELPER -->
+    <footer>
+        <button class="gemini-btn" onclick="toggleAI()">
+            <span class="gemini-icon">✨</span> Ask Gemini
+        </button>
+
+        <div id="ai-window" class="ai-modal" style="display: none;">
+            <div class="ai-header">
+                <span>✨ Gemini Assistant</span>
+                <button onclick="toggleAI()" class="close-btn">&times;</button>
+            </div>
+            <div id="ai-response-area" class="ai-content">
+                Hi! How can I help you navigate ICT-RENTALS?
+            </div>
+            <div class="ai-footer">
+                <input type="text" id="ai-input" placeholder="Type your question...">
+                <button onclick="sendToAI()">Send</button>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function toggleAI() {
+            const win = document.getElementById('ai-window');
+            win.style.display = win.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        async function sendToAI() {
+            const input = document.getElementById('ai-input');
+            const area = document.getElementById('ai-response-area');
+            const prompt = input.value;
+            if (!prompt) return;
+
+            area.innerHTML = "<em>Thinking...</em>";
+            input.value = ""; // Clear input
+
+            try {
+                const response = await fetch('/api/ai-assist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: `[Context: ${window.location.pathname}] ${prompt}` }),
+                });
+                
+                const data = await response.json();
+                area.innerHTML = data.success ? data.text : "Error: " + data.error;
+            } catch (err) {
+                area.innerHTML = "Failed to connect to AI.";
+            }
+        }
+        /* Admin Authentication Logic */
+        document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const warningBox = document.getElementById('auth-warning');
+            const loginBtn = document.getElementById('loginBtn');
+
+            // Reset UI state
+            warningBox.style.display = 'none';
+            loginBtn.innerText = 'Checking...';
+            loginBtn.style.opacity = '0.7';
+            loginBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/login-admin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && !result.error) {
+                    // SUCCESS
+                    window.location.href = '/admin/dashboard';
+                } else {
+                    // WRONG PASSWORD or USER NOT FOUND
+                    // result.message comes from your router.post logic
+                    warningBox.innerText = "❌ " + (result.message || "Invalid credentials.");
+                    warningBox.style.display = 'block';
+                }
+            } catch (err) {
+                // API SERVER IS DOWN
+                warningBox.innerText = "🚨 System Error: Unable to connect to the login server. Please check your internet or try again later.";
+                warningBox.style.display = 'block';
+                console.error("Connection failed:", err);
+            } finally {
+                loginBtn.innerText = 'Log in';
+                loginBtn.style.opacity = '1';
+                loginBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
